@@ -1,6 +1,7 @@
 import time
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
 import streamlit as st
 from langchain_community.llms import Ollama
@@ -16,11 +17,11 @@ from langchain_classic.chains import RetrievalQA
 start_time = time.perf_counter()
 load_dotenv()
 
-DATA_FILE = os.getenv("DATA_FILE")
+DATA_FILE = f"{Path(__file__).parent}/{os.getenv("DATA_FILE")}"
 data_string = ""
 
 # Step 1: Load from DATA_FILE path
-if DATA_FILE and os.path.exists(DATA_FILE):
+if os.path.exists(DATA_FILE):
     st.sidebar.success(f"✅ Loading data from: {DATA_FILE}")
     try:
         with open(DATA_FILE, "r", encoding="utf-8") as f:
@@ -29,7 +30,7 @@ if DATA_FILE and os.path.exists(DATA_FILE):
         st.sidebar.error(f"❌ Error reading {DATA_FILE}: {e}")
         st.stop()
 else:
-    st.sidebar.error(f"❌ File not found: {DATA_FILE}")
+    st.sidebar.error(f"❌ File not found: {DATA_FILE} {os.getcwd()}")
     st.sidebar.info("Make sure DATA_FILE is set in .env and points to a valid file")
     st.stop()
 
