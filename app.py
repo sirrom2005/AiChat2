@@ -13,7 +13,6 @@ from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import RetrievalQA
 
-
 start_time = time.perf_counter()
 load_dotenv()
 
