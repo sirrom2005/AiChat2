@@ -1,0 +1,301 @@
+Customer Support Training Data - 100 Examples
+
+1. What are your business hours?
+We are open Monday to Friday from 9:00 AM to 6:00 PM EST. On weekends, we operate from 10:00 AM to 4:00 PM EST. We are closed on all major holidays.
+
+2. How do I reset my password?
+To reset your password, click the "Forgot Password" link on the login page. Enter your email address and we'll send you a reset link. Click the link in your email and create a new password. If you don't receive an email within 5 minutes, check your spam folder.
+
+3. What payment methods do you accept?
+We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, and bank transfers. All transactions are secured with 256-bit SSL encryption.
+
+4. How long does shipping take?
+Standard shipping takes 5-7 business days. Express shipping takes 2-3 business days. Overnight shipping is available for next-day delivery. Shipping times exclude weekends and holidays.
+
+5. Can I return an item?
+Yes, you can return items within 30 days of purchase for a full refund. Items must be unused and in original packaging. Return shipping is free for defective items. For other returns, customers pay return shipping costs.
+
+6. What is your refund policy?
+Refunds are processed within 7-10 business days after we receive your return. The refund will be credited to your original payment method. Items must be in resalable condition. Final sale items cannot be returned.
+
+7. How do I track my order?
+Once your order ships, you'll receive a tracking number via email. You can use this number on our website to track your package in real-time. Most carriers provide updates every 24 hours.
+
+8. Do you offer discounts for bulk orders?
+Yes, we offer volume discounts for orders over 50 units. Contact our sales team at sales@company.com for a custom quote. Discounts range from 10% to 30% depending on order size.
+
+9. Is my personal data safe?
+We use industry-standard security measures to protect your data. Your information is encrypted and stored securely. We never share your data with third parties without consent. You can view our privacy policy on our website.
+
+10. How do I cancel my subscription?
+You can cancel your subscription anytime from your account settings. There are no cancellation fees. Your service will remain active until the end of your billing period. You can reactivate your subscription anytime.
+
+11. What warranty do you offer on products?
+We offer a 1-year manufacturer's warranty on all products. The warranty covers manufacturing defects. It does not cover damage from misuse or accidents. Extended warranty options are available for purchase.
+
+12. How do I contact customer support?
+You can reach our support team via email at support@company.com, phone at 1-800-XXX-XXXX, or through our live chat on the website. We respond to emails within 24 hours on business days.
+
+13. Do you have a loyalty program?
+Yes, join our loyalty program to earn points on every purchase. You earn 1 point per dollar spent. Points can be redeemed for discounts or free products. Members also get exclusive early access to sales.
+
+14. Can I change my order after placing it?
+If your order hasn't shipped yet, you can modify it. Log into your account and go to recent orders. Click "Edit Order" to make changes. If your order has already shipped, you'll need to refuse delivery and place a new order.
+
+15. What are the minimum order requirements?
+There is no minimum order amount. You can purchase a single item or in bulk. Free shipping applies to orders over $50. Express shipping has a $15 surcharge.
+
+16. Do you offer gift wrapping?
+Yes, we offer complimentary gift wrapping for orders. During checkout, select the gift wrapping option. You can also add a personalized gift message for free.
+
+17. How do I update my account information?
+Log into your account and click "Profile Settings." You can update your name, email, phone number, and address. Changes take effect immediately. For security reasons, you'll need to re-enter your password.
+
+18. What should I do if I receive a damaged item?
+Contact us immediately with photos of the damage. We'll send you a replacement at no cost. Return shipping for the damaged item is free. Most replacements ship within 24 hours.
+
+19. Do you have physical store locations?
+We operate online only at this time. However, we have distribution centers in 5 locations across the country for faster shipping. We do not have retail stores.
+
+20. Can I purchase gift cards?
+Yes, digital and physical gift cards are available. They never expire and can be used toward any purchase. Gift cards can be purchased in denominations from $10 to $500.
+
+21. How do I apply a promo code?
+Enter your promo code during checkout in the "Apply Coupon" field. The discount will be calculated automatically. One code per order. Codes may have specific terms and conditions.
+
+22. What is your environmental policy?
+We use recyclable packaging materials whenever possible. We offset carbon emissions from shipping. We donate 1% of profits to environmental charities. We encourage customers to recycle our packaging.
+
+23. Do you offer international shipping?
+We currently ship to 50+ countries. International shipping costs vary by location. Delivery times are 10-21 business days. Customers are responsible for any customs duties or taxes.
+
+24. How can I become a reseller?
+We have a reseller program with attractive margins. Resellers receive volume discounts and marketing support. Email partnerships@company.com to learn more about requirements and benefits.
+
+25. What products are currently in stock?
+All items on our website are in stock unless marked as "Pre-order" or "Out of Stock." Stock levels update in real-time. Subscribe to our newsletter for restock notifications on popular items.
+
+26. Can I schedule a product demo?
+Yes, we offer virtual product demos for our premium product line. Schedule a demo at your convenience. Our product specialists will walk you through features and answer questions. Demos typically last 30 minutes.
+
+27. Do you offer price matching?
+We match competitor prices on identical items. Provide a link to the competitor's listing. The price match applies to new orders only, not existing orders.
+
+28. What if I'm not satisfied with my purchase?
+We offer a 60-day satisfaction guarantee. If you're unhappy for any reason, return it for a full refund. No questions asked. We want you to be completely satisfied.
+
+29. How do I unsubscribe from emails?
+Click the "Unsubscribe" link at the bottom of any email. Your request is processed immediately. You'll stop receiving marketing emails but may still receive transactional emails about your orders.
+
+30. Are there any hidden fees?
+No, there are no hidden fees. The price shown includes all applicable taxes and shipping. Payment processing is free. We clearly disclose all charges before checkout.
+
+31. Can I use multiple payment methods for one order?
+No, one payment method per order. However, you can split payments across multiple orders if needed. Contact our support team for special circumstances.
+
+32. What is your social media presence?
+Follow us on Facebook, Instagram, Twitter, and LinkedIn for updates and promotions. We respond to messages within 24 hours. Tag us in photos for a chance to be featured on our page.
+
+33. Do you offer student discounts?
+Yes, students get 15% off with valid student ID. Register on our website with your .edu email address. Discount applies to most products. Some exclusions may apply.
+
+34. How do I request an invoice?
+Invoices are automatically sent when you place an order. You can also download invoices from your account. For custom invoices, contact our billing department.
+
+35. What is your company's mission?
+Our mission is to provide high-quality products at competitive prices with exceptional customer service. We believe in sustainability and giving back to the community.
+
+36. Can I change my shipping address after ordering?
+If your order hasn't shipped, contact us immediately. We can update your address if the carrier hasn't picked it up yet. Once shipped, you'll need to refuse delivery and reorder.
+
+37. Do you have a mobile app?
+Yes, our mobile app is available on iOS and Android. The app offers exclusive mobile-only deals. Push notifications alert you to new products and sales. Download for free from your app store.
+
+38. What are your best-selling products?
+Our top sellers include [Product A], [Product B], and [Product C]. These items are consistently highly rated by customers. They make great gifts and are perfect for beginners.
+
+39. How do I report a bug or issue?
+Report technical issues through our website's support form. Be as detailed as possible about what happened. Include screenshots if possible. Our IT team investigates all reports within 24 hours.
+
+40. Can I purchase on behalf of someone else?
+Yes, you can purchase for others. Enter their delivery address at checkout. You can add a gift message. The order will be shipped directly to them.
+
+41. What training resources are available?
+We offer free tutorials, webinars, and user guides for our products. Video tutorials are available on our YouTube channel. Comprehensive manuals are downloadable from our website.
+
+42. Do you offer wholesale pricing?
+Yes, wholesalers receive significant discounts. Minimum order quantities apply. Contact our wholesale team at wholesale@company.com for pricing and terms.
+
+43. How often do you update your inventory?
+Inventory updates happen continuously throughout the day. New products are added regularly. Discontinued items are marked as such. Check back often for new arrivals.
+
+44. What should I do if I forget my username?
+Your username is the email address associated with your account. If you forgot your email, contact support with verification information. We can help you recover your account.
+
+45. Can I purchase items on credit?
+We accept financing options through select partners. Financing is available for orders over $500. Terms vary from 6 to 24 months. Apply during checkout to see if you qualify.
+
+46. How do I leave a product review?
+Reviews can be left in your account under "My Purchases." Click "Write a Review" next to the product. Reviews go live after moderation, usually within 48 hours. Only verified buyers can leave reviews.
+
+47. What is your quality assurance process?
+All products undergo strict quality checks before shipping. We test functionality and inspect for defects. Only items that meet our standards ship to customers. This ensures high customer satisfaction.
+
+48. Do you offer customization services?
+Some products can be customized with personalization options. Select your preferences during checkout. Lead times for custom orders are 2-3 weeks. Custom items are final sale.
+
+49. Can I request an upgrade after purchase?
+Yes, you can upgrade to a better version. You'll receive a credit for your original purchase. Pay the difference for the upgrade. Contact support to arrange the trade-in.
+
+50. What languages do you support?
+Our website is available in English, Spanish, French, and German. Customer support is available in English only. Select your language from the dropdown menu.
+
+51. How do I know if an item will fit me?
+Detailed size charts are provided for all clothing and accessories. Measurements are in both inches and centimeters. Customer reviews often mention fit and sizing. Contact us if you need help choosing your size.
+
+52. Are there any age restrictions on purchases?
+Some products are restricted to customers 18+. Age verification may be required at delivery. This applies to certain product categories. Check product details for any restrictions.
+
+53. Can I pre-order upcoming products?
+Yes, pre-orders are available for upcoming releases. You'll be charged when the product becomes available. Shipping is included in the pre-order price. You can cancel a pre-order anytime before it ships.
+
+54. Do you have a referral program?
+Yes, refer friends and earn $20 credit for each successful referral. Your friend gets a 10% discount on their first order. There's no limit to how many friends you can refer. Credits never expire.
+
+55. What is your return shipping process?
+Print a prepaid shipping label from your account. Pack your item securely. Use the provided label for your carrier. Return items typically arrive within 7-10 business days.
+
+56. Can I combine orders?
+Orders placed separately cannot be combined. If you need to place multiple orders, purchase everything at once. You'll save on shipping and receive everything together.
+
+57. How do I access my digital products?
+Digital products are delivered via email immediately after purchase. Check your email (including spam folder) for download links. Links are valid for 30 days. You can also access downloads from your account.
+
+58. What if I moved to a new address?
+Update your address in your account settings anytime. Future orders will ship to your new address. For assistance, contact our support team with your order details.
+
+59. Do you offer educational discounts?
+Schools and educational institutions receive 20% off. Educational discounts require verification of status. Contact our sales team with your institution details.
+
+60. How do I know my order is confirmed?
+You'll receive a confirmation email within minutes of placing your order. The email includes your order number and itemized receipt. Your order status updates in your account anytime.
+
+61. Can I change my shipping method after ordering?
+If your order hasn't shipped yet, you can upgrade your shipping. Upgrade requests should be made within 24 hours. The additional cost will be charged to your card.
+
+62. What happens if a product goes on sale after I buy it?
+We offer a 7-day price guarantee. If an item goes on sale within 7 days of purchase, we'll refund the difference. Contact support with your order number to request a price adjustment.
+
+63. Do you offer same-day delivery?
+Same-day delivery is available in select metropolitan areas. Orders placed before 2 PM weekdays qualify. A $25 rush fee applies to same-day orders.
+
+64. How do I report a scam or suspicious activity?
+Report suspicious activity immediately to security@company.com. Never share your password or personal information. We investigate all fraud reports within 24 hours. Your account will be protected during investigation.
+
+65. What is your data retention policy?
+We retain customer data for 5 years after the last purchase. You can request data deletion anytime. Account closure results in permanent data deletion after 30 days.
+
+66. Can I purchase in bulk without an account?
+You can make one-time purchases without an account. However, an account is required for bulk orders over 100 units. Create a free account to access all features and discounts.
+
+67. How do I update my billing information?
+Update billing information in your account settings anytime. Changes take effect for your next order. You can also update it during checkout before payment.
+
+68. What should I do if I see an error in my invoice?
+Contact our billing department immediately with your order number. We'll correct the invoice and resend it. Most billing errors are resolved within 24 hours.
+
+69. Do you offer technical support for products?
+Yes, technical support is available for all products. Email us at tech-support@company.com with your issue. Include your product serial number for faster service. Response time is typically 24 hours.
+
+70. Can I cancel a pending order?
+Yes, you can cancel orders that haven't shipped. Log into your account and select "Cancel Order." Refunds are processed to your original payment method. Allow 5-7 business days for refund to appear.
+
+71. How do I find products in my size?
+Use our advanced search filters to narrow by size, color, and category. Size recommendations are shown for each product. Customer reviews mention fit and sizing details.
+
+72. What if my question isn't answered here?
+Contact our support team via chat, email, or phone. We're available 24/5 (closed Saturdays). Average response time is 2 hours. We're happy to help with any question.
+
+73. Do you offer price drop notifications?
+Yes, add items to your wishlist to track prices. You'll receive email notifications when prices drop. Set your price target and we'll alert you when it's reached.
+
+74. Can I schedule a callback from support?
+Yes, schedule a callback through our website. Select your preferred time slot. We'll call you within the 30-minute window. No need to wait on hold.
+
+75. How do I know if an item is new or refurbished?
+Product condition is clearly listed on every product page. New items are sealed in original packaging. Refurbished items are fully tested and guaranteed to work.
+
+76. What is your exchange policy?
+Items can be exchanged for a different size or color within 30 days. Exchange shipping is free. If the new item costs more, you pay the difference. If it costs less, you receive a credit.
+
+77. Do you have a flash sale schedule?
+Flash sales are announced via our email newsletter and social media. Sales typically last 24 hours. Early access is available to loyalty program members.
+
+78. Can I purchase items not listed on the website?
+We can special order items not currently listed. Email our sales team with specific requests. Lead times vary depending on the item. Pricing is confirmed before order placement.
+
+79. How do I create a wishlist?
+Click "Add to Wishlist" on any product page. Your wishlist is saved to your account. Share your wishlist with others via a unique link. Wishlist items are held for 60 days.
+
+80. What if a product is defective after the warranty?
+Out-of-warranty repairs are available for a fee. Contact our service center for repair costs. Most repairs take 5-7 business days. We offer expedited repairs for an additional charge.
+
+81. Can I hide items from my purchase history?
+Items can be archived but not fully hidden from your account. Your complete purchase history is kept for warranty and return purposes. Contact support if you need sensitive information removed.
+
+82. How do I get early access to new products?
+Join our VIP program for early access to new releases. VIP members get exclusive discounts and priority customer service. VIP membership is $9.99/month and includes free shipping.
+
+83. What is your social responsibility program?
+We donate 2% of profits to charity. We partner with organizations for community service. Customers can round up their purchase to donate. We're committed to making a positive impact.
+
+84. Can I use expired coupons?
+Expired coupons cannot be used. We occasionally have amnesty promotions for expired coupons. Subscribe to our newsletter to learn about special promotions.
+
+85. How do I provide feedback about our service?
+Customer feedback surveys are sent via email after purchase. You can also submit feedback through our website contact form. We value your input and use it to improve our service.
+
+86. What if I received the wrong item?
+Contact us immediately with photos. We'll send the correct item at no cost. Return shipping for the wrong item is free. Most corrections are handled within 24 hours.
+
+87. Do you offer installment payment plans?
+Yes, installment plans are available for purchases over $300. Plans are offered through our financing partner. Terms range from 3 to 12 months. Apply during checkout to see available options.
+
+88. How do I know my item is authentic?
+All products sold directly by us are 100% authentic. We only work with authorized manufacturers. Products come with original packaging and documentation. Authenticity is guaranteed or your money back.
+
+89. Can I return items purchased on sale?
+Yes, sale items can be returned within 30 days. The same return policy applies regardless of price. Refunds are issued at the sale price paid.
+
+90. What if I need to update my shipping instructions?
+Contact us before your order ships. We can add delivery instructions to your package. Include details like gate codes or building access information. Instructions are delivered to the carrier.
+
+91. How do I access my account on multiple devices?
+Log in from any device with your email and password. Your account syncs across all devices automatically. For security, log out of shared devices. Set up two-factor authentication for extra protection.
+
+92. Can I purchase without providing a phone number?
+A phone number is optional. It's only used to contact you about your order if needed. Your phone number is kept confidential and not shared.
+
+93. What if my address is not in the system?
+Type your address manually during checkout. Specify apartment, suite, or unit numbers clearly. For unusual addresses, contact support with delivery details.
+
+94. How do I track a return?
+A return tracking number is emailed when we receive your request. Use this number to track your package to our facility. Tracking updates are sent throughout the return process.
+
+95. Can I modify items in my cart?
+Yes, modify quantities and options anytime before checkout. Remove items by clicking the X icon. Your cart saves for 30 days if you log in. Items may become unavailable if not ordered soon.
+
+96. What if I want to place a large order?
+Orders over $5,000 qualify for special pricing. Contact our business sales team for a custom quote. We offer flexible payment terms for large orders. Dedicated support is provided for bulk purchases.
+
+97. How do I know about upcoming sales and promotions?
+Subscribe to our newsletter for promotional offers. Promotions are also posted on our social media. VIP members get early notification of sales. Enable notifications in our mobile app to stay updated.
+
+98. Can I return items without a receipt?
+Yes, returns are processed with your email and order number. Search your email for your order confirmation. If you can't locate it, provide your account information to our support team.
+
+99. What if my order shows as delivered but I didn't receive it?
+Check your delivery location, porch, and mailroom. Neighbors may have accepted the package. Contact the carrier to confirm delivery location. We can investigate if the package was lost. File a claim with the carrier if needed.
+
+100. How do I become a brand ambassador?
+We're always looking for passionate customers to promote our brand. Brand ambassadors receive exclusive perks and discounts. Apply through our website or email partnerships@company.com. Share your portfolio or social media following with your application.
