@@ -1,0 +1,446 @@
+═══════════════════════════════════════════════════════════════════════════════
+🐳 DOCKER SETUP GUIDE FOR AI CHATBOT
+═══════════════════════════════════════════════════════════════════════════════
+
+TABLE OF CONTENTS
+─────────────────
+1. Quick Start
+2. File Structure
+3. Individual Docker Commands
+4. Docker Compose Setup
+5. Building & Running
+6. Troubleshooting
+7. Production Setup
+
+═══════════════════════════════════════════════════════════════════════════════
+1. QUICK START (5 MINUTES)
+═══════════════════════════════════════════════════════════════════════════════
+
+What You Need
+─────────────
+✓ Docker installed (https://www.docker.com/products/docker-desktop)
+✓ Docker Compose installed (usually comes with Docker Desktop)
+✓ Your project files (app, data.txt, .env)
+
+
+Option A: Using Docker Compose (RECOMMENDED)
+──────────────────────────────────────────────
+Fastest way to get everything running:
+
+Step 1: Navigate to your project
+  $ cd /path/to/your/chatbot/project
+
+Step 2: Make sure you have these files:
+  ✓ Dockerfile
+  ✓ docker-compose.yml
+  ✓ requirements.txt
+  ✓ app.py
+  ✓ data.txt
+  ✓ .env
+
+Step 3: Start everything
+  $ docker-compose up
+
+Step 4: Open browser
+  → http://localhost:8501
+
+Step 5: Stop when done
+  Press Ctrl+C
+
+
+Option B: Using Docker Only
+────────────────────────────
+If you already have Ollama running locally:
+
+Step 1: Build image
+  $ docker build -t chatbot-app .
+
+Step 2: Run container
+  $ docker run -p 8501:8501 \
+    -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
+    -v $(pwd)/data.txt:/app/data.txt \
+    chatbot-app
+
+Step 3: Open browser
+  → http://localhost:8501
+
+═══════════════════════════════════════════════════════════════════════════════
+2. FILE STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+Required Files
+──────────────
+your_chatbot_project/
+├── Dockerfile                    ← Docker image definition
+├── docker-compose.yml            ← Multi-container setup
+├── .dockerignore                 ← Files to exclude
+├── requirements.txt              ← Python dependencies
+├── app.py                        ← Main app
+├── data.txt                      ← Training data
+├── .env                          ← Configuration
+└── README.md                     ← Documentation
+
+
+What Each File Does
+───────────────────
+
+Dockerfile
+  Defines how to build the Docker image
+  • Base image: Python 3.11
+  • Installs dependencies
+  • Runs Streamlit app
+  • Exposes port 8501
+
+docker-compose.yml
+  Orchestrates multiple containers
+  • Ollama service (port 11434)
+  • Streamlit app (port 8501)
+  • Shared network for communication
+  • Volume mounts for data
+
+.dockerignore
+  Files to exclude from build context
+  • Similar to .gitignore
+  • Reduces image size
+  • Speeds up builds
+
+requirements.txt
+  Python package dependencies
+  • langchain & langchain-core
+  • ollama
+  • streamlit
+  • faiss-cpu
+
+═══════════════════════════════════════════════════════════════════════════════
+3. INDIVIDUAL DOCKER COMMANDS
+═══════════════════════════════════════════════════════════════════════════════
+
+Build the Image
+────────────────
+$ docker build -t chatbot-app .
+
+  -t chatbot-app    Tag for the image
+  .                 Build from current directory
+
+Verify build:
+  $ docker images | grep chatbot-app
+
+
+Run the Container
+─────────────────
+$ docker run -p 8501:8501 \
+  -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
+  -v $(pwd)/data.txt:/app/data.txt \
+  chatbot-app
+
+  -p 8501:8501              Map port 8501
+  -e OLLAMA_BASE_URL=...    Set environment variable
+  -v $(pwd)/data.txt:...    Mount data file
+  chatbot-app               Image name
+
+
+Run with .env file
+──────────────────
+$ docker run -p 8501:8501 \
+  --env-file .env \
+  -v $(pwd)/data.txt:/app/data.txt \
+  chatbot-app
+
+
+Run in Background
+──────────────────
+$ docker run -d -p 8501:8501 \
+  --name my-chatbot \
+  --env-file .env \
+  -v $(pwd)/data.txt:/app/data.txt \
+  chatbot-app
+
+  -d                    Detached mode
+  --name my-chatbot     Container name
+
+
+View Logs
+─────────
+$ docker logs my-chatbot          # Current logs
+$ docker logs -f my-chatbot       # Follow logs (Ctrl+C to exit)
+$ docker logs --tail 50 my-chatbot  # Last 50 lines
+
+
+Stop Container
+───────────────
+$ docker stop my-chatbot
+
+
+Remove Container
+────────────────
+$ docker rm my-chatbot
+
+
+Remove Image
+────────────
+$ docker rmi chatbot-app
+
+═══════════════════════════════════════════════════════════════════════════════
+4. DOCKER COMPOSE SETUP
+═══════════════════════════════════════════════════════════════════════════════
+
+What docker-compose.yml Does
+─────────────────────────────
+Runs TWO services:
+
+1. Ollama Service
+   • Docker image: ollama/ollama
+   • Runs LLM models
+   • Port: 11434
+   • Auto-downloads models on startup
+
+2. Chatbot App Service
+   • Builds from your Dockerfile
+   • Runs Streamlit app
+   • Port: 8501
+   • Depends on Ollama being healthy
+   • Mounts data.txt volume
+
+
+Network Communication
+─────────────────────
+With docker-compose, containers communicate via service name:
+
+  # Inside chatbot-app container
+  http://ollama:11434  # Can access Ollama service
+
+No localhost needed! Docker Compose handles networking.
+
+
+Environment Variables in docker-compose.yml
+────────────────────────────────────────────
+Set in the environment section:
+
+  environment:
+    - OLLAMA_MODEL=llama3.2:latest
+    - OLLAMA_BASE_URL=http://ollama:11434
+    - CONFIDENCE_THRESHOLD=0.5
+
+Modify these for your setup.
+
+
+Volume Mounts
+─────────────
+Allows containers to access your files:
+
+  volumes:
+    - .:/app                          # Entire project
+    - ./data.txt:/app/data.txt        # Training data
+    - ./cache:/app/.streamlit         # Streamlit cache
+
+Changes to data.txt are immediately visible in container.
+
+═══════════════════════════════════════════════════════════════════════════════
+5. BUILDING & RUNNING
+═══════════════════════════════════════════════════════════════════════════════
+
+Using docker-compose (EASIEST)
+───────────────────────────────
+
+Build only:
+  $ docker-compose build
+
+Build and run:
+  $ docker-compose up
+
+Build and run in background:
+  $ docker-compose up -d
+
+View logs:
+  $ docker-compose logs -f
+
+View specific service logs:
+  $ docker-compose logs -f ollama
+  $ docker-compose logs -f chatbot-app
+
+Stop all services:
+  $ docker-compose down
+
+Stop and remove volumes:
+  $ docker-compose down -v
+
+Restart services:
+  $ docker-compose restart
+
+
+First Time Setup
+────────────────
+The first time you run docker-compose up, it will:
+
+1. Pull ollama/ollama image
+2. Build chatbot-app image from Dockerfile
+3. Create network connection
+4. Start ollama container
+5. Wait for ollama to be healthy
+6. Start chatbot-app container
+7. Download llama3.2:latest model
+8. Download all-minilm:l6-v2 model
+9. Start Streamlit app
+
+This takes several minutes on first run.
+⏳ Be patient and check logs if it seems stuck:
+  $ docker-compose logs -f ollama
+
+
+Usage After Startup
+────────────────────
+Once running:
+
+  ✓ Open http://localhost:8501
+  ✓ Your chatbot is ready!
+  ✓ Data is in /app/data.txt
+  ✓ Models are cached in ollama_data volume
+
+═══════════════════════════════════════════════════════════════════════════════
+6. TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+"connection refused" when accessing localhost:8501
+────────────────────────────────────────────────────
+Solution:
+  1. Check container is running:
+     $ docker-compose ps
+  2. Check logs:
+     $ docker-compose logs chatbot-app
+  3. Wait longer (first startup takes time)
+  4. Restart:
+     $ docker-compose restart chatbot-app
+
+
+"Cannot connect to Ollama"
+──────────────────────────
+Solution:
+  1. Verify ollama container is running:
+     $ docker-compose logs ollama
+  2. Check if ollama is healthy:
+     $ docker-compose ps (look for "healthy" status)
+  3. Give it more time to start:
+     Ollama takes ~10-30 seconds to start
+  4. Check logs:
+     $ docker-compose logs -f ollama
+
+
+"Port already in use"
+─────────────────────
+Solution:
+  Change port in docker-compose.yml:
+
+    # Instead of 8501:8501, use:
+    ports:
+      - "8502:8501"
+
+  Then access: http://localhost:8502
+
+
+"Model not found" error
+───────────────────────
+Solution:
+  1. Check logs:
+     $ docker-compose logs ollama
+  2. Manually pull model:
+     $ docker exec ollama-service ollama pull llama3.2:latest
+  3. Verify models:
+     $ docker exec ollama-service ollama list
+
+
+"Out of memory" or "Docker daemon crashed"
+───────────────────────────────────────────
+Solution:
+  1. Increase Docker memory limit:
+     Docker Desktop → Settings → Resources
+     Set to 4GB-8GB minimum
+  2. Stop other containers:
+     $ docker-compose down
+  3. Restart Docker Desktop
+
+
+"data.txt not found"
+────────────────────
+Solution:
+  1. Verify file exists:
+     $ ls -la data.txt
+  2. Check volume mount in docker-compose.yml
+  3. Make sure file is in project root
+
+═══════════════════════════════════════════════════════════════════════════════
+7. PRODUCTION SETUP
+═══════════════════════════════════════════════════════════════════════════════
+
+For Production Deployment
+──────────────────────────
+
+1. Create .env.prod
+   Set secure values:
+   - Strong credentials
+   - Production API keys
+   - Domain names
+
+2. Use multi-stage builds in Dockerfile
+   Reduces final image size
+
+3. Use specific Python version:
+   FROM python:3.11.6-slim (not latest)
+
+4. Add resource limits in docker-compose.yml:
+   services:
+     chatbot-app:
+       deploy:
+         resources:
+           limits:
+             cpus: '2'
+             memory: 2G
+
+5. Use proper logging:
+   docker logs with --log-driver splunk/awslogs
+
+6. Health checks:
+   Already added in Dockerfile with HEALTHCHECK
+
+7. Security:
+   - Don't run as root
+   - Use secrets for sensitive data
+   - Scan images: docker scan chatbot-app
+
+8. Container Registry:
+   Push to Docker Hub/ECR:
+   $ docker build -t username/chatbot-app .
+   $ docker push username/chatbot-app
+
+
+Deployment to Cloud
+────────────────────
+
+AWS ECS:
+  1. Create ECR repository
+  2. Build and push image
+  3. Create ECS task definition
+  4. Create ECS service
+
+Google Cloud Run:
+  1. Push to Google Container Registry
+  2. Deploy with: gcloud run deploy
+
+Azure Container Instances:
+  1. Push to Azure Container Registry
+  2. Deploy with Azure CLI
+
+Heroku (with Docker):
+  1. Push to Heroku Container Registry
+  2. Deploy with heroku container:push
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEXT STEPS
+──────────
+1. Install Docker Desktop
+2. Copy Dockerfile, docker-compose.yml, requirements.txt
+3. Run: docker-compose up
+4. Open http://localhost:8501
+5. Ask your chatbot questions!
+
+═══════════════════════════════════════════════════════════════════════════════

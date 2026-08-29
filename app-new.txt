@@ -1,0 +1,178 @@
+"""
+===============================================================================
+STREAMLIT APP WITH LANGCHAIN RETRIEVAL CHAIN
+===============================================================================
+Modern LangChain approach using:
+  - create_retrieval_chain
+  - create_stuff_documents_chain
+  - ChatPromptTemplate
+
+Run: streamlit run app.py
+===============================================================================
+"""
+
+import os
+import time
+from dotenv import load_dotenv
+
+import streamlit as st
+from langchain_community.llms import Ollama
+from langchain_ollama import OllamaEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.prompts import ChatPromptTemplate
+
+# Load environment
+load_dotenv()
+
+# Configuration
+LLM_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2:latest")
+EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDINGS", "all-minilm:l6-v2")
+DATA_FILE = os.getenv("DATA_FILE", "data.txt")
+CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", "0.5"))
+
+
+# === INITIALIZATION ===
+@st.cache_resource
+def initialize_chain():
+    """Initialize the retrieval chain (cached for performance)"""
+
+    # Load data
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        data = f.read()
+
+    # Create vector store
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=800,
+        chunk_overlap=100
+    )
+    chunks = splitter.split_text(data)
+    embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
+    vector_store = FAISS.from_texts(chunks, embeddings)
+
+    # Create LLM
+    llm = Ollama(model=LLM_MODEL)
+
+    # Create prompt
+    system_prompt = (
+        "You are a helpful assistant. Use the following pieces of context "
+        "to answer the question. If you don't know the answer based on the "
+        "context, say 'I don't know - this information isn't in my knowledge base.'\n\n"
+        "{context}"
+    )
+
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", system_prompt),
+            ("human", "{input}"),
+        ]
+    )
+
+    # Create retrieval chain
+    document_chain = create_stuff_documents_chain(llm, prompt)
+    retrieval_chain = create_retrieval_chain(
+        vector_store.as_retriever(),
+        document_chain
+    )
+
+    return retrieval_chain, vector_store, len(chunks)
+
+
+def calculate_confidence(vector_store, query: str) -> float:
+    """Calculate confidence score"""
+    results = vector_store.similarity_search_with_score(query, k=1)
+
+    if not results:
+        return 0.0
+
+    _, distance = results[0]
+    distance = float(distance)
+    confidence = max(0.0, min(1.0, 1 - (distance / 2)))
+
+    return confidence
+
+
+# === STREAMLIT UI ===
+st.set_page_config(
+    page_title="🤖 AI Chatbot",
+    page_icon="🤖",
+    layout="wide"
+)
+
+st.title("🤖 AI Chatbot")
+st.write("Powered by LangChain + Llama + FAISS")
+
+# Initialize
+try:
+    chain, vector_store, num_chunks = initialize_chain()
+except FileNotFoundError:
+    st.error(f"❌ Data file not found: {DATA_FILE}")
+    st.stop()
+except Exception as e:
+    st.error(f"❌ Error initializing chain: {e}")
+    st.stop()
+
+# Sidebar
+with st.sidebar:
+    st.subheader("⚙️ Configuration")
+    st.write(f"**Model:** {LLM_MODEL}")
+    st.write(f"**Embeddings:** {EMBEDDING_MODEL}")
+    st.write(f"**Threshold:** {CONFIDENCE_THRESHOLD}")
+    st.divider()
+    st.subheader("📊 Data")
+    st.write(f"**File:** {DATA_FILE}")
+    st.write(f"**Chunks:** {num_chunks}")
+
+# Query input
+st.subheader("Ask a Question")
+query = st.text_input(
+    "What would you like to know?",
+    placeholder="e.g., What is your return policy?"
+)
+
+if query:
+    start_time = time.perf_counter()
+
+    with st.spinner("🔄 Processing..."):
+        try:
+            # Calculate confidence
+            confidence = calculate_confidence(vector_store, query)
+
+            # Get response
+            response = chain.invoke({"input": query})
+            answer = response["answer"]
+
+            elapsed = time.perf_counter() - start_time
+
+        except Exception as e:
+            st.error(f"❌ Error: {e}")
+            st.stop()
+
+    # Display answer
+    st.subheader("Answer")
+
+    if confidence < CONFIDENCE_THRESHOLD:
+        st.warning("⚠️ Low confidence - this may not be accurate")
+        st.info("I don't know - this information isn't in my knowledge base.")
+    else:
+        st.success(answer)
+
+    # Display metrics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("🎯 Confidence", f"{confidence:.1%}")
+    with col2:
+        st.metric("⏱️ Response Time", f"{elapsed:.2f}s")
+    with col3:
+        status = "✅ Found" if confidence >= CONFIDENCE_THRESHOLD else "⚠️ Uncertain"
+        st.metric("📌 Status", status)
+
+    # Show source documents
+    if "context" in response:
+        with st.expander("📚 Source Documents"):
+            for i, doc in enumerate(response["context"], 1):
+                st.write(f"**Document {i}**")
+                st.text(doc.page_content[:500])
+                st.divider()

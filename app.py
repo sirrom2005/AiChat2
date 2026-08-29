@@ -4,8 +4,6 @@ import os
 from pathlib import Path
 
 import streamlit as st
-from langchain_community.llms import Ollama
-from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
@@ -125,34 +123,3 @@ if query:
         <b>🔗 Embedding:</b> {os.getenv("OLLAMA_EMBEDDINGS")}
     </div>
     """, unsafe_allow_html=True)
-
-# if query:
-#     with st.spinner("Thinking..."):
-#         results, confidence = query_with_confidence(query, vectorstore)
-#         if confidence < CONFIDENCE_THRESHOLD:
-#             response = "I don't know - this information isn't in my knowledge base."
-#         else:
-#             response = qa.run(query)
-#         end = time.perf_counter()
-#         elapsed = end - start
-#     st.success(f"{response}")
-#
-#     query = ""
-#     info_html = f"""
-#     <div style="
-#         background-color: #d1e3f3;
-#         padding: 15px;
-#         border-radius: 10px;
-#         border-left: 5px solid #2e77d0;
-#         color: #1e3a5f;
-#         font-family: sans-serif;
-#         line-height: 1.6;
-#     ">
-#         <b>📊 Confidence Score:</b> {confidence:.2%}<br>
-#         <b>⏱️ Time Elapsed:</b> {elapsed:.4f}s<br>
-#         <b>🧠 Model:</b> {os.getenv("OLLAMA_MODEL")}<br>
-#         <b>🔗 Embedding:</b> {os.getenv("OLLAMA_EMBEDDINGS")}
-#     </div>
-#     """
-#     # Render it
-#     st.markdown(info_html, unsafe_allow_html=True)

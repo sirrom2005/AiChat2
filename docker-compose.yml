@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Ollama service - runs language models
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-service
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - chatbot-network
+
+  # Streamlit app service
+  chatbot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatbot-app
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_MODEL=llama3.2:latest
+      - OLLAMA_EMBEDDINGS=all-minilm:l6-v2
+      - CONFIDENCE_THRESHOLD=0.5
+      - DATA_FILE=data.txt
+      # Point to ollama service
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - .:/app
+      - ./data.txt:/app/data.txt
+      - ./cache:/app/.streamlit
+    depends_on:
+      ollama:
+        condition: service_healthy
+    networks:
+      - chatbot-network
+    # Make requests to ollama service
+    command: >
+      sh -c "
+      sleep 10 &&
+      ollama pull llama3.2:latest &&
+      ollama pull all-minilm:l6-v2 &&
+      streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+      "
+
+volumes:
+  ollama_data:
+    driver: local
+
+networks:
+  chatbot-network:
+    driver: bridge

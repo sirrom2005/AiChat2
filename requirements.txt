@@ -1,0 +1,26 @@
+# Streamlit
+streamlit==1.28.1
+
+# LangChain - Latest stable versions that work together
+langchain==0.1.17
+langchain-core==0.1.50
+langchain-community==0.0.38
+
+# Ollama
+ollama==0.6.1
+
+# Vector DB
+faiss-cpu==1.7.4
+
+# Embeddings
+sentence-transformers==2.2.2
+
+# Environment
+python-dotenv==1.0.0
+
+# HTTP
+requests==2.31.0
+
+# Base libraries
+numpy==1.24.3
+scipy==1.11.4
